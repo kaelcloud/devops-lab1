@@ -84,6 +84,7 @@ resource "aws_instance" "web_server" {
   instance_type = var.instance_type
 
   vpc_security_group_ids = [aws_security_group.web_sg.id]
+  key_name               = aws_key_pair.deployer.key_name  # ADD THIS LINE
 
   # User data script - runs when instance first boots
   user_data = <<-EOF
