@@ -82,6 +82,7 @@ resource "aws_security_group" "web_sg" {
 resource "aws_instance" "web_server" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
+  availability_zone      = "ap-southeast-1a" 
 
   vpc_security_group_ids = [aws_security_group.web_sg.id]
   key_name               = aws_key_pair.deployer.key_name  # ADD THIS LINE
